@@ -14,8 +14,8 @@
     state: present
 
 - name: clone a repo
-become: yes
-become_user: root
+  become: yes
+  become_user: root
   ansible.builtin.git:
      repo: https://github.com/jtoguntoye/tooling.git
      dest: /var/www/html
