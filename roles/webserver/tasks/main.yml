@@ -33,6 +33,13 @@
     name: httpd
     state: started
 
+- name: enable service httpd, if not enabled
+  become: yes
+  become_user: root
+  ansible.builtin.service:
+    name: httpd
+    enabled: yes
+
 - name: recursively remove /var/www/html/html/ directory
   become: yes
   become_user: root
