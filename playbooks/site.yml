@@ -1,6 +1,13 @@
 ---
-- hosts: all
-- import_playbook: ../static-assignments/common-del.yml
+- name: include dynamic variables
+  hosts: all
+  tasks:
+    - import_playbook: ../static-assignments/common.yml
+    - include_playbook: ../dynamic-assignments/env-vars.yml
+  tags:
+    - always   
 
-- hosts: uat-webservers
-- import_playbook: ../static-assignments/uat-webservers.yml
+- name: webserver assignment
+  hosts: uat-webservers
+  tasks:
+   - import_playbook: ../static-assignments/uat-webservers.yml
