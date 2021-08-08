@@ -1,7 +1,7 @@
 ---
--name: collate variables form env specific file, if it exists
- hosts: all
- tasks:
+- name: collate variables form env specific file, if it exists
+  hosts: all
+  tasks:
     - name: looping through list of all variables
       include_vars: "{{ item }}"
       with_first_found:
@@ -10,7 +10,7 @@
             - stage.yml
             - prod.yml
             - uat. yml
-          paths:
-           - "{{ playbook_dir }}/ ../env-vars" 
+         paths:
+           - "{{ playbook_dir }}/../env-vars" 
       tags: 
        - always      
