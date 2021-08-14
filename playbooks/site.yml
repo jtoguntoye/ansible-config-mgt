@@ -9,12 +9,8 @@
     tags:
         - always
 
-  - name: database setup
-    import_playbook: ../static-assignments/uat-mysqlserver.yml      
-
   - name: webserver assignment
     import_playbook: ../static-assignments/uat-webservers.yml
-
   
   - name: loadbalancer assignments
     import_playbook: ../static-assignments/loadbalancers.yml

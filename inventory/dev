@@ -1,12 +1,15 @@
-[nfs]
-172.31.45.111 ansible_user='ec2-user' ansible_connection=ssh
+[tooling]
+<Tooling-web-server-private-ip-address>
 
-[webservers]
-172.31.5.45 ansible_user='ec2-user' ansible_connection=ssh
-172.31.13.59 ansible_user='ec2-user' ansible_connection=ssh
+[Todo]
+<Todo-Web-Server-Private-IP-Address>
+
+[nginx]
+<Nginx-Private-IP-Address>
+
+[db:vars]
+ansible_user=ec2-user
+ansible_python_interpreter=/usr/bin/python
 
 [db]
-172.31.0.84 ansible_user='ubuntu' ansible_connection=ssh
-
-[lb]
-172.31.27.116 ansible_user='ubuntu' ansible_connection=ssh
+<DB-Server-Private-IP-Address>
