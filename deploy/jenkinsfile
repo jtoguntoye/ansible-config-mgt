@@ -16,7 +16,7 @@ pipeline {
         }
         stage ('SCM checkout') {
           steps {
-            git(branch: 'main', url: 'https://github.com/jtoguntoye/ansible-config-mgt')
+            git(branch: 'master', url: 'https://github.com/jtoguntoye/ansible-config-mgt')
             }
         }
         stage ('Exexcute playbook') {
