@@ -21,7 +21,7 @@ pipeline {
         }
         stage ('Exexcute playbook') {
             steps {
-                ansiblePlaybook credentialsId: 'latest-key', installation: 'ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
+                ansiblePlaybook credentialsId: 'latest-key', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
             }
         }
 
