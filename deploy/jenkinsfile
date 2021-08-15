@@ -2,40 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                script {
-                    sh 'echo "Building stage"'
-                }
+
+         stage("Initial cleanup") {
+          steps {
+            dir("${WORKSPACE}") {
+              deleteDir()
+            }
+          }
+        }
+        stage ('SCM checkout') {
+          steps {
+            git(branch: 'main', url: 'https://github.com/jtoguntoye/ansible-config-mgt')
             }
         }
-        stage('Test') {
+        stage ('Exexcute playbook') {
             steps {
-                script {
-                    sh 'echo "Testing stage"'
-                }
+                ansiblePlaybook credentialsId: 'latest-key', installation: 'ansible', inventory: 'inventory/dev', playbook: 'playbooks/site.yml'
             }
         }
-        stage('Package') {
-            steps {
-                script {
-                    sh 'echo "Packaging stage"'
-                }
-            }
+
+        stage('Clean Workspace after build'){
+        steps{
+          cleanWs(cleanWhenAborted: true, cleanWhenFailure: true, cleanWhenNotBuilt: true, cleanWhenUnstable: true, deleteDirs: true)
         }
-        stage('Deploy') {
-            steps {
-                script {
-                    sh 'echo "Deployment stage"'
-                }
-            }
-        }
-        stage('Clean up') {
-            steps {
-                script {
-                    sh 'echo "clean up stage"'
-                }
-            }
-        }
+        
     }
 }

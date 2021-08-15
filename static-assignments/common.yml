@@ -1,7 +1,7 @@
 ---
-- name: update web, nfs and db servers
-  hosts: uat, nfs, db
-  remote_user: ec2_user
+- name: update tooling, todo, nginx and db servers
+  hosts: tooling, todo, nginx, db
+  remote_user: ubuntu
   become: yes
   become_user: root
   tasks:
