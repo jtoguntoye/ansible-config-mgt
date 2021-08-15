@@ -1,15 +1,17 @@
 pipeline {
     agent any
+     options {
+        // This is required if you want to clean before build
+        skipDefaultCheckout(true)
+    }
     environment {
       ANSIBLE_CONFIG="${WORKSPACE}/deploy/ansible.cfg"
     }
     stages {
-
          stage("Initial cleanup") {
           steps {
-            dir("${WORKSPACE}") {
-              deleteDir()
-            }
+            // Clean before build
+                cleanWs()
           }
         }
         stage ('SCM checkout') {
