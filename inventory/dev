@@ -1,15 +1,11 @@
 [tooling]
-172.31.37.16 ansible_user='ubuntu' ansible_connection=ssh ansible_private_key_file=/home/ubuntu/latest-keypair.pem
+172.31.37.16 
 
 [todo]
-172.31.32.225 ansible_user='ubuntu' ansible_connection=ssh ansible_private_key_file=/home/ubuntu/latest-keypair.pem
+172.31.32.225 
 
 [nginx]
-172.31.36.210 ansible_user='ubuntu' ansible_connection=ssh ansible_private_key_file=/home/ubuntu/latest-keypair.pem
-
-[db:vars]
-ansible_user=ec2-user
-ansible_python_interpreter=/usr/bin/python
+172.31.36.210 
 
 [db]
-172.31.46.72 ansible_user='ubuntu' ansible_connection=ssh ansible_private_key_file=/home/ubuntu/latest-keypair.pem
+172.31.46.72 
